@@ -1,0 +1,15 @@
+
+img{
+  width: 100px;
+  height:100px;
+  padding: 30px;
+  
+}
+.App h1{
+  text-align: center;
+}
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
