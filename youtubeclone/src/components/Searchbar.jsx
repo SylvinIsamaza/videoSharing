@@ -3,18 +3,19 @@ import { Navigate, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Paper, IconButton } from '@mui/material'
 import { Search } from '@mui/icons-material'
+import { Link } from 'react-router-dom'
 
-function Searchbar(e) {
+function Searchbar() {
     const [searchTerm,setSearchTerm]=useState("")
     function search(e){
-// setSearchTerm(e.target.value)
+setSearchTerm(e.target.value)
     }
-//   console.log(searchTerm)
+ 
   return (
       <Paper
           component='form'
           onSubmit={(searchTerm) => { 
-        //    <Link to={(`/search/${searchTerm}`)}></Link>
+           
           }}
           sx={{
               borderRadius: 20,
@@ -30,9 +31,12 @@ function Searchbar(e) {
               onChange={search}>
               
           </input>
-          <IconButton type='submit' sx={{p:'10px',color:'red'}}>
-              <Search/>
+          <Link to={(`/search/${searchTerm}`)}>
+          <IconButton type='submit'>
+          <Search color='red'/>
           </IconButton>
+          </Link>
+             
           </Paper>
           
   )

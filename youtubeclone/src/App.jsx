@@ -4,7 +4,8 @@ import './index.css'
 import axios from 'axios'
 import { BrowserRouter, Routes,Route} from 'react-router-dom'
 import {Box} from "@mui/material";
-import{Feed,VideoDetails,ChannelDetails,Navbar,SearchFeed, Sidebar}from './components'
+import{Feed,VideoDetails,ChannelDetails,Navbar,SearchFeed, Sidebar, Signup}from './components'
+import Profile from './components/Profile'
 function App() {
  
  
@@ -22,6 +23,9 @@ function App() {
             <Route path='/video/:id' element={<VideoDetails />}></Route>
             <Route path='/channels/:id' element={<ChannelDetails />}></Route>
             <Route path='/search/:searchTerm' element={<SearchFeed />}></Route>
+            <Route path='/signup' element={<Signup />}></Route>
+            <Route path='/profile' element={<Profile />}></Route>
+            
           </Routes>
         </Box>
       </BrowserRouter>

@@ -17,7 +17,7 @@ const VideoDetails = () => {
 const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
 
   const [channelDetails, setChannelDetails] = useState({});
-  const [channelId, setChannelId] = useState('');
+
   const [thumbnailUrl, setThumbnailUrl] = useState('');
 
   const [subscriberCount, setSubscriberCount] = useState('');
@@ -25,41 +25,29 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
 
   // const[channel,setChannel]=useState("")
   // console.log(id)
-  
+  let channelId;
   useEffect(() => {
     fetchFromApi(`videos?id=${id}`)
-      .then((data) => {
+      .then(async (data) => {
         setVideoDetails(data.items[0])
-        setChannelId(data?.items[0]?.snippet.channelId||'');
+       channelId=await data?.items[0]?.snippet.channelId||'';
         const fetchData = async () => {
           const data = await fetchFromApi(`channels?part=snippet%2Cstatistics&id=${channelId}`)
-          .then((data)=>{
+      
             setThumbnailUrl(data?.items[0]?.snippet?.thumbnails?.high?.url || '');
             
             setSubscriberCount(data?.items[0]?.statistics?.subscriberCount || 0);
-          })
+         
           
         };
        
         fetchData()
-        .then(()=>{
-          if(subscriberCount>1000000){
-            setSubscriberDisplay(subscriberCount/1000000+"M")
-          }
-          else if(subscriberCount>1000){
-            setSubscriberDisplay(subscriberCount/1000+"K")
-          }
-          
-          else{
-            setSubscriberDisplay(subscriberCount)
-          }
-          })
-        })
+        
      
     fetchFromApi(`search?relatedToVideoId=${id}&part=id%2Csnippet&type=video`)
       .then(async(data) => {
-        setRelatedVideos(data.items);
-        
+        setRelatedVideos(data.items)
+       
         // console.log(relatedVideos[0].id);
       
       
@@ -77,10 +65,25 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
     
   
   },[id,channelId])
+
+  if(subscriberCount>1000000){
+    setSubscriberDisplay(subscriberCount/1000000+"M")
+  }
+  else if(subscriberCount>1000){
+    setSubscriberDisplay(subscriberCount/1000+"K")
+  }
+  
+  else{
+    setSubscriberDisplay(subscriberCount)
+  }
+  
+})
   
   // console.log(videoDetails)
   console.log(channelId)
   console.log(thumbnailUrl)
+  console.log('this si subscriber display '+subscriberDisplay)
+
   
   return (
     <Stack flexDirection={{
@@ -224,8 +227,13 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
 
                     </Typography>
                     <Typography variant='body2' paragraph component='p'>
-                      {video?.statistics?.viewCount||0} views
-
+                      {/* {video?.statistics?.viewCount||0} views */}
+                      {async()=>{
+                          await  fetchFromApi(`videos?id=${video?.id.videoId}`)
+                           .then(async (data) => {
+                            console.log(data)
+                           })
+                      }}
                     </Typography>
                   </CardContent>
 

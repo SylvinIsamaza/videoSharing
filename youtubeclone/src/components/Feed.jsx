@@ -38,7 +38,7 @@ function Feed() {
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
         />
-        <Typography className='copyright' variant='body2' sx={{mt:1.4,color:'#fff'}}>
+        <Typography className='copyright' variant='body2' sx={{mt:1.4,color:'#fff',}} >
           Copyright 2022 Isamaza Sylvain
         </Typography>
       </Box>

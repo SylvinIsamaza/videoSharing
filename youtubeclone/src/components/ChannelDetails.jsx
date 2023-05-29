@@ -16,39 +16,40 @@ const ChannelDetails = () => {
   const [videoCount, setVideoCount] = useState(0);
   const [subscriberCount, setSubscriberCount] = useState(0);
   const [subscriberDisplay,setSubscriberDisplay]=useState(subscriberCount)
+  const[channelName,setChannelName] = useState("")
   useEffect(() => {
     const fetchData = async () => {
       const data = await fetchFromApi(`channels?part=snippet%2Cstatistics&id=${id}`)
-      .then((data)=>{
+      .then(async (data)=>{
         setChannelDetails(data);
         setBannerImageUrl(data?.items[0]?.brandingSettings?.image?.bannerExternalUrl || '');
         setThumbnailUrl(data?.items[0]?.snippet?.thumbnails?.high?.url || '');
         setVideoCount(data?.items[0]?.statistics?.videoCount || 0);
         setSubscriberCount(data?.items[0]?.statistics?.subscriberCount || 0)
-  
-      })
+        
+        setChannelName(data?.items[0]?.snippet?.title||'')
+        })
+   
+    return subscriberCount
+
+    }
     
 
-    };
-    
     fetchData()
-    .then(()=>{
-      if(subscriberCount>1000000){
-        setSubscriberDisplay(subscriberCount/1000000+"M")
-      }
-      else if(subscriberCount>1000){
-        setSubscriberDisplay(subscriberCount/1000+"K")
-      }
-      
-      else{
-        setSubscriberDisplay(subscriberCount)
-      }
-    }).catch(err=>{
-      console.log(err)
-    })
-          
+    
+    
+   
+    
+   
+ 
+   
+  
+  
+ 
 
   }, [id]);
+
+console.log(channelDetails)
 
 
   return (
@@ -58,12 +59,12 @@ const ChannelDetails = () => {
     <Stack flexDirection="column" sx={{ justifyContent: 'center', alignItems: 'center' }} flex='1'>
       <Stack flexDirection={{ sx: 'column', md: 'row' }} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%' }}>
         <Card sx={{ width: '100%', display: 'flex', justifyContent: 'center', flexDirection: 'column' }}>
-          <CardMedia component="img" image={bannerImageUrl} sx={{ width: '100%', height: 'calc(16.1290322581vw - 1px)' }} />
+          <CardMedia component="img" image={bannerImageUrl} width='100%' height='300px' />
           <Card sx={{ display: 'flex', marginLeft:'10px'}} variant="text">
             <CardMedia component="img" image={thumbnailUrl} sx={{ width: '200px', height: '200px' }} />
             <CardContent>
               <Typography variant="h5" component="h2">
-                JavaScript Mastery<CheckCircle color="action" />
+                {channelName} {subscriberCount>100000?<CheckCircle color="action" />:''}
               </Typography>
               <Box>
                 <CardContent>
@@ -72,7 +73,10 @@ const ChannelDetails = () => {
                   </Typography>
                   <Typography variant="body2" component="h2">
                 
-                    {subscriberDisplay} subscribers
+                    { subscriberCount>1000000 ? subscriberCount / 1000000 + "M"
+    : subscriberCount > 1000
+    ? subscriberCount / 1000 + "K"
+    : subscriberCount} subscribers
                     
                   </Typography>
                 </CardContent>

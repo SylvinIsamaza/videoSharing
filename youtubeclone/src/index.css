@@ -88,3 +88,15 @@ a {
     width:200px;
   }
 }
+.profile_picture{
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+}
+.profile_picture img{
+  height: 50px;
+  width: 50px;
+  background-color: white;
+  border-radius: 50%;
+}

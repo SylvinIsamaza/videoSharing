@@ -26,7 +26,7 @@ function ChannelCard({ channelDetail }) {
 
               <CardMedia
                   component='image'
-                  image={channelDetail.snippet.thumbnails.high.url} title={channelDetail.snippet.title}
+                  img={channelDetail.snippet.thumbnails.high.url} title={channelDetail.snippet.title}
                   alt={channelDetail.snippet.title}
                   sx={{
                       width: '200px',

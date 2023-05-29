@@ -56,7 +56,7 @@ function VideoCard({video}) {
                   <Typography variant='body2' color='textSecondary'
                       sx={{
                           color: '#e3e3e3',
-                          opacity: '0.8',
+                        
                           margin:' 7px 0'
                   }}paragraph gutterBottom>
                   {video.snippet.channelTitle||''}
