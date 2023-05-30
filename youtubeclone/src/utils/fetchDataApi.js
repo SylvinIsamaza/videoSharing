@@ -9,7 +9,7 @@ const options = {
     method: 'GET',
     url: BASE_URL,
     params: {
-        maxResults: '50'
+        maxResults: '200'
     },
     headers: {
 'X-RapidAPI-Key' : 'd533bed4bdmsh2c2e6795768d69dp17b81cjsn6d711f082590',

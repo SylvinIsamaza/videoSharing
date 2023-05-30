@@ -43,6 +43,7 @@ a {
   border:none;
   outline:none;
   width:350px;
+
 }
 
 .category-btn{
@@ -86,17 +87,92 @@ a {
   }
   .search-bar{
     width:200px;
+    
+   
   }
 }
 .profile_picture{
   height: 50px;
   width: 50px;
-  background-color: white;
+ 
   border-radius: 50%;
 }
 .profile_picture img{
   height: 50px;
   width: 50px;
-  background-color: white;
+
   border-radius: 50%;
 }
+input.light,input.dark{
+  background-color:transparent;
+  border: none;
+  outline: none;
+  width: 300px;
+  height: 80%;
+}
+input.light:focus{
+  border: none;
+  outline:none
+}
+input.light{
+  color: black;
+}
+input.dark{
+  color: white;
+}
+span.dark{
+  color: white;
+}
+span.light{
+  color: black;
+}
+.dark{
+  color: white;
+}
+.light{
+  color: black;
+}
+
+@media (max-width:400px) {
+ input.light{
+  width: 60%;
+ 
+  height: 30px;
+ 
+ }
+ input.dark{
+  width: 60%;
+
+ 
+ }
+}
+@media (max-width:700px) {
+  input.light{
+   width: 70%;
+  
+  
+  }
+  input.dark{
+   width: 70%;
+ 
+  
+  }
+ }
+ @media (max-width:300px) {
+  input.light{
+ display: none;
+  
+  }
+  input.dark{
+ display: none;
+ 
+  
+  }
+  .search{
+    width: 100%;
+  }
+  .profile_picture{
+    width: 30px;
+    height: 30px;
+  }
+ }

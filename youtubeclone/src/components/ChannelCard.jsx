@@ -10,12 +10,13 @@ function ChannelCard({ channelDetail }) {
       <Stack flexDirection={{ sx: 'column', md: 'row' }}>
 
           <Card sx={{
-              maxWidth: '400px',
+              maxWidth: '350px',
+              minWidth:'270px',
               height: '370px',
               borderRadius: '2px',
               margin: '7px 15px',
               right: '4px',
-              background: '#111',
+             
               display: 'flex',
               flexDirection:'column',
               alignItems: 'center',
@@ -47,7 +48,7 @@ function ChannelCard({ channelDetail }) {
                       fontSize: '16px',
                       maxHeight: '17px',
                       overflow: 'hidden',
-                      color: '#fff',
+                     
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',

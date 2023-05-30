@@ -5,11 +5,15 @@ import { VideoCard, ChannelCard } from './'
 function Videos({ videos ,localVideos}) {
  console.log(videos);
   return (
-    <Stack direction='row' flexWrap='wrap' justifyContent='start' gap='2'
+    <Stack direction='row' flexWrap='wrap' justifyContent='start' gap='6'  sx={{
+    
+     margin:'0 3%'
+    }}
     >
       {videos.map((item, idx) => (
         <Box key={idx} sx={{
-        flex:1
+        flex:1,
+        
       }}>
         
 

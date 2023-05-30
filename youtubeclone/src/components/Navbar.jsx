@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect ,useState} from 'react'
 import {ButtonGroup, Stack, Button, colors, IconButton} from '@mui/material'
 import {Link} from 'react-router-dom'
 import {logo} from '../utils/constants'
@@ -8,12 +8,18 @@ import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import {Logout} from '@mui/icons-material'
-import LightModeIcon from '@mui/icons-material/LightMode';
+
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import profilePic from '../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
-function Navbar() {
+import LightModeIcon from '@mui/icons-material/LightMode';
+
+function Navbar({changeThemes,inputThemes,currentUrl}) {
+    const [show, setShow] = useState(false);
+   
+  
+
     return (
         <>
             <Stack direction='row' alignItems='center'
@@ -22,8 +28,9 @@ function Navbar() {
                     {
                         position: 'sticky',
                         top: 0,
-                        background: '#000',
-                        justifyContent: 'space-between'
+                       bgcolor:inputThemes=='light'?"#fff":'#111',
+                        justifyContent: 'space-between',
+                        
                     }
             }>
                 <Link to='/'
@@ -35,9 +42,11 @@ function Navbar() {
                 }><img src={logo}
                         alt="logo"
                         height={45}/></Link>
-                <Searchbar/>
+                {<Searchbar inputThemes={inputThemes}/>}
                 <div style={{display:'flex',alignItems:'center',gap:'20px'}}>
-                  <IconButton><ModeNightIcon sx={{color:'white'}}/></IconButton>
+                  <IconButton onClick={()=>{
+                    changeThemes();
+                  }}>{inputThemes=='light'?<ModeNightIcon/>:<LightModeIcon/> }  </IconButton>
                   
                     <div className="profile_picture"
                     onClick={
@@ -77,8 +86,8 @@ function Navbar() {
                         width: '300px',
                         height: "500px",
                         justifyContent: 'center',
-                        backgroundColor: '#222',
-                        color: 'white'
+                        backgroundColor: inputThemes=='light'?"#fff":'#222',
+                        color: inputThemes=='light'?"#000":'#fff'
                     }
                 }
                 className='ButtonGroup'>
@@ -92,7 +101,7 @@ function Navbar() {
                                 display: 'flex',
                                 alignItems: 'center',
                                 justifyContent: 'flex-start',
-                                color: 'white',
+                                color: inputThemes=='light'?"#000":'#fff',
                                 width: '100%',
                                 margin: '5px 0',
                                 padding: '20px 0',
@@ -108,7 +117,7 @@ function Navbar() {
                             display: 'flex',
                             alignItems: 'flex-start',
                             justifyContent: 'flex-start',
-                            color: 'white',
+                            color: inputThemes=='light'?"#000":'#fff',
                             width: '100%',
                             margin: '5px 0',
                             padding: '20px 0',
@@ -125,16 +134,22 @@ function Navbar() {
                             alignItems: 'center',
                             justifyContent: 'flex-start',
                             gap: '2px',
-                            color: 'white',
+                            color: inputThemes=='light'?"#000":'#fff',
                             width: '100%',
                             margin: '5px 0',
                             padding: '20px 0',
                             textTransform: 'capitalize'
                         }
                 }>
-                    <ModeNightOutlinedIcon sx={
+                    {/* <IconButton onClick={()=>{
+                    changeThemes();
+                  }}> */}
+                    {inputThemes=='light'?<ModeNightIcon sx={
                         {padding: '5px 20px'}
-                    }></ModeNightOutlinedIcon>appearance</Button>
+                    }/>:<LightModeIcon sx={
+                        {padding: '5px 20px'}
+                    }/> }appearance</Button>
+                
                 <Button variant='text'
                     sx={
                         {
@@ -142,7 +157,7 @@ function Navbar() {
                             alignItems: 'center',
                             justifyContent: 'flex-start',
                             gap: '2px',
-                            color: 'white',
+                            color: inputThemes=='light'?"#000":'#fff',
                             width: '100%',
                             margin: '5px 0',
                             padding: '20px 0',
@@ -152,6 +167,9 @@ function Navbar() {
                     <SettingsOutlinedIcon sx={
                         {padding: '5px 20px'}
                     }></SettingsOutlinedIcon>Setting</Button>
+                    <a href="/signup" style={{
+                        width:'100%'
+                    }}>
                 <Button variant='text'
                     sx={
                         {
@@ -159,23 +177,25 @@ function Navbar() {
                             alignItems: 'center',
                             justifyContent: 'flex-start',
                             gap: '2px',
-                            color: 'white',
+                            color: inputThemes=='light'?"#000":'#fff',
                             width: '100%',
                             margin: '5px 0',
                             padding: '20px 0',
                             textTransform: 'capitalize'
                         }
                 }>
+                    
                     <Logout sx={
                         {padding: '5px 20px'}
                     }></Logout>signout</Button>
+                    </a>
                 <Button variant='text'
                     sx={
                         {
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'flex-start',
-                            color: 'white',
+                            color: inputThemes=='light'?"#000":'#fff',
                             width: '100%',
                             margin: '5px 0',
                             padding: '20px 0',

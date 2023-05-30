@@ -102,8 +102,7 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
       }}>
         <ReactPlayer className='react-player' url={`https://youtu.be/${id}`} controls />
         <Typography variant='subtitle2' component='h2' sx={{
-          color:'white'
-        }}>
+         }}>
           {videoDetails?.snippet?.title}
         </Typography>
         <Card variant='text'>

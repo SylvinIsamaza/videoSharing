@@ -7,7 +7,7 @@ import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
 
 
 
-function Feed() {
+function Feed({inputThemes}) {
   const [selectedCategory, setSelectedCategory] = useState('New')
   const[dataFromLocalApi,setDataFromLocalApi] = useState("")
   const[video,setVideos]=useState([])
@@ -32,11 +32,12 @@ function Feed() {
   console.log(localVideo)
   return (
     <Stack sx={{
-      flexDirection:{sx:'column',md:"row"}}}>
-      <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 },position:'sticky', top:'68px'} }>
+      flexDirection:{sm:'column',md:"row"},justifySelf:'center',}}>
+      <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 },position:'sticky', top:'68px',} }>
         <Sidebar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
+          inputThemes={inputThemes}
         />
         <Typography className='copyright' variant='body2' sx={{mt:1.4,color:'#fff',}} >
           Copyright 2022 Isamaza Sylvain
@@ -46,7 +47,9 @@ function Feed() {
         overflowY:'scroll',
         maxHeight:'100%'
       }}>
-        <Typography variant='h4' fontWeight='bold' mb={2} sx={{ color: 'white' }}>
+        <Typography variant='h4' fontWeight='bold' mb={2}  className={inputThemes=="light"?'light':'dark'} sx={{
+          margin:'0 3%'
+        }}>
           {selectedCategory}<span style={{color:'#F31503 '}}> videos</span>
 
         </Typography>

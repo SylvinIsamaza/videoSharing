@@ -30,7 +30,7 @@ fetchFromApi(`videos?id=${video.id.videoId}`)
               borderRadius: '2px',
               margin: '7px 10px',
               right: '4px',
-                    background: '#111',
+               
               flex:1
              
              
@@ -55,7 +55,7 @@ fetchFromApi(`videos?id=${video.id.videoId}`)
                       fontSize: '16px',
                       maxHeight: '17px',
                       overflow: 'hidden',
-                      color: '#fff',
+                     
                     textAlign:'start'  ,
 
                      
@@ -72,7 +72,7 @@ fetchFromApi(`videos?id=${video.id.videoId}`)
               }}>
                   <Typography variant='body2' color='textSecondary'
                       sx={{
-                          color: '#e3e3e3',
+                          
                           opacity: '0.8',
                           margin:' 7px 20px'
                   }}paragraph gutterBottom>
@@ -84,7 +84,7 @@ fetchFromApi(`videos?id=${video.id.videoId}`)
               </Card>
                   
       </Stack>
-        // </Link>
+         </Link>
       
     
   )

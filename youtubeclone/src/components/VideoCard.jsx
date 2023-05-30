@@ -8,16 +8,16 @@ function VideoCard({video}) {
       
       <Link to={`/video/${video.id.videoId}`}>
    
-      <Stack flexDirection={{ sx: 'column', md: 'row' }} sx={{flexWrap:'wrap'}}>
+      <Stack flexDirection={{ sm: 'column', md: 'row' }} sx={{flexWrap:'wrap',flex:1}}  >
           
           <Card sx={{
                     maxWidth: '350px',
-             
+                    minWidth:'270px',
             height:'370px',
               borderRadius: '2px',
-              margin: '7px 10px',
+              margin: '7px 15px',
               right: '4px',
-                    background: '#111',
+                    
               flex:1
              
              
@@ -31,7 +31,7 @@ function VideoCard({video}) {
                 // title={video.title}
 
                   sx={{
-                      width:'400px',
+                      width:'100%',
                       height: '220px'
                       
                   }}
@@ -45,7 +45,7 @@ function VideoCard({video}) {
                       fontSize: '16px',
                       maxHeight: '17px',
                       overflow: 'hidden',
-                      color: '#fff',
+                     
                      
     
                   }} gutterBottom>
@@ -55,7 +55,7 @@ function VideoCard({video}) {
               </Typography>
                   <Typography variant='body2' color='textSecondary'
                       sx={{
-                          color: '#e3e3e3',
+                         
                         
                           margin:' 7px 0'
                   }}paragraph gutterBottom>

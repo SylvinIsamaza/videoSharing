@@ -2,10 +2,10 @@ import React from 'react'
 import { Navigate, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { Paper, IconButton } from '@mui/material'
-import { Search } from '@mui/icons-material'
+import { Height, Search } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 
-function Searchbar() {
+function Searchbar({inputThemes}) {
     const [searchTerm,setSearchTerm]=useState("")
     function search(e){
 setSearchTerm(e.target.value)
@@ -20,12 +20,13 @@ setSearchTerm(e.target.value)
           sx={{
               borderRadius: 20,
               border: '1px solid #e3e3e3',
-              pl:2,
+              pl:{sx:0,md:2},
               boxShadow:'none',
-              mr:{sm:5}
+             marginLeft:'3%',
+             
           }}>
           <input
-              className='search-bar'
+              className={inputThemes }
               placeholder='search...'
              value={searchTerm}
               onChange={search}>
@@ -33,7 +34,7 @@ setSearchTerm(e.target.value)
           </input>
           <Link to={(`/search/${searchTerm}`)}>
           <IconButton type='submit'>
-          <Search color='red'/>
+          <Search className='search'/>
           </IconButton>
           </Link>
              
