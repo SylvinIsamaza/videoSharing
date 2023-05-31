@@ -14,7 +14,7 @@ const YourChannel = () => {
   const [bannerImageUrl, setBannerImageUrl] = useState('');
   const [thumbnailUrl, setThumbnailUrl] = useState('');
   const [videoCount, setVideoCount] = useState(0);
-  const [subscriberCount, setSubscribsignuperCount] = useState(0);
+  const [subscriberCount, setSubscriberCount] = useState(0);
   const [subscriberDisplay,setSubscriberDisplay]=useState(subscriberCount)
   const[channelName,setChannelName] = useState("")
   useEffect(() => {

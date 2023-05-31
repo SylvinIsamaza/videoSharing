@@ -33,7 +33,7 @@ function Feed({inputThemes}) {
   return (
     <Stack sx={{
       flexDirection:{sm:'column',md:"row"},justifySelf:'center',
-  
+      height:'90dvh',overflow:'scroll'
       }}>
       <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 },position:'sticky', top:'68px',} }>
         <Sidebar
@@ -41,7 +41,9 @@ function Feed({inputThemes}) {
           setSelectedCategory={setSelectedCategory}
           inputThemes={inputThemes}
         />
-       
+        <Typography className='copyright' variant='body2' sx={{mt:1.4,color:'#fff',}} >
+          Copyright 2022 Isamaza Sylvain
+        </Typography>
       </Box>
       <Box sx={{
         overflowY:'scroll',

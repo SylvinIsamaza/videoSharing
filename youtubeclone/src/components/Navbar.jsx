@@ -1,5 +1,5 @@
 import React, { useEffect ,useState} from 'react'
-import {ButtonGroup, Stack, Button, colors, IconButton, Card} from '@mui/material'
+import {ButtonGroup, Stack, Button, colors, IconButton, Card,Box} from '@mui/material'
 import {Link} from 'react-router-dom'
 import {logo} from '../utils/constants'
 import Searchbar from './Searchbar'
@@ -74,7 +74,7 @@ function Navbar({changeThemes,inputThemes,setThemes}) {
 
             </Stack>
 
-
+            <Box >
             <ButtonGroup variant="outlined" aria-label="outlined button group"
                 sx={
                     {
@@ -220,9 +220,12 @@ function Navbar({changeThemes,inputThemes,setThemes}) {
                     <LightModeIcon sx={
                         {padding: '5px 20px'}
                     }/> Light mode</Button>
-            </ButtonGroup>
+
+            </ButtonGroup >
                     </Card>
-                
+                <a href='/settings'  style={{
+                    width:"100%",
+                }}>
                 <Button variant='text'
                     sx={
                         {
@@ -240,6 +243,7 @@ function Navbar({changeThemes,inputThemes,setThemes}) {
                     <SettingsOutlinedIcon sx={
                         {padding: '5px 20px'}
                     }></SettingsOutlinedIcon>Setting</Button>
+                    </a>
                     <a href="/signup" style={{
                         width:'100%'
                     }}>
@@ -278,7 +282,7 @@ function Navbar({changeThemes,inputThemes,setThemes}) {
                   {padding: '5px 20px'}
                     }/>help</Button>
             </ButtonGroup>
-           
+            </Box>
 
         </>
     )

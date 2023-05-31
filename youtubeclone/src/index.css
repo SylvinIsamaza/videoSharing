@@ -147,12 +147,21 @@ span.light{
 
  
  }
+ .setting_button{
+  max-width: 30px;
+}
 }
 @media (max-width:700px) {
   input.light{
    width: 70%;
   
   
+  }
+  .setting_item{
+    display: none;
+  }
+  .setting_button{
+    max-width: 30px;
   }
   input.dark{
    width: 70%;
@@ -165,6 +174,13 @@ span.light{
  display: none;
   
   }
+  .setting_item{
+    display: none;
+  }
+  .setting_button{
+    max-width: 30px;
+    align-items: center;
+  }
   input.dark{
  display: none;
  
@@ -172,6 +188,10 @@ span.light{
   }
   .search{
     width: 100%;
+  }
+  .setting_sidebar{
+    width: 40px;
+    align-items: center;
   }
   .profile_picture{
     width: 30px;

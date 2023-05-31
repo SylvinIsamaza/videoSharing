@@ -1,0 +1,5 @@
+export {default as Account } from './Account'
+export {default as Download } from './Download'
+export {default as Languages } from './Language'
+export {default as Privacy } from './Privacy'
+export {default as Theme } from './Theme'

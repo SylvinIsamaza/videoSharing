@@ -1,5 +1,5 @@
 import { Button, Card, IconButton, Stack, Typography } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -7,10 +7,17 @@ import {Link} from '@mui/material'
 
 
 import {logo} from '../utils/constants'
+import NavbarAuth from './NavbarAuth';
 
-function Signup({inputThemes}) {
+function Signup({changeThemes,inputThemes,setThemes,showNavigation}) {
+  useEffect(()=>{
+    showNavigation();
+  },[window.location.href])
   return (
-    <Stack mt={20} width='100%' display='flex' alignItems='center' height='100vh'>
+    <>
+    <NavbarAuth changeThemes={changeThemes} inputThemes={inputThemes} setThemes={setThemes}></NavbarAuth>
+   
+    <Stack mt={20} width='100%' display='flex' alignItems='center'>
       
   <Card sx={{
   display:'flex',
@@ -58,7 +65,7 @@ gap:'7px'
 </Card>
     </Stack>
 
-
+    </>
 
 
   )
