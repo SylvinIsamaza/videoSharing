@@ -3,10 +3,12 @@ import reactLogo from './assets/react.svg';
 import './index.css';
 import axios from 'axios';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Box } from '@mui/material';
-import { Feed, VideoDetails, ChannelDetails, Navbar, SearchFeed, Sidebar, Signup,Login, UploadVideo } from './components';
+import { Box, Stack } from '@mui/material';
+import { Feed, VideoDetails, ChannelDetails, Navbar, SearchFeed, Sidebar, Signup,Login, UploadVideo, YourChannel } from './components';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import Profile from './components/Profile';
+
+
 
 function App() {
   const [themes, setThemes] = useState('light');
@@ -33,11 +35,21 @@ function App() {
 
 
   return (
-    <div className="App">
+    <ThemeProvider theme={theme}>
       <BrowserRouter>
-        <ThemeProvider theme={theme}>
-          <Box sx={{ bgcolor: 'background.paper', position: 'sticky' }}>
-           <Navbar changeThemes={changeThemes} inputThemes={themes} />
+    <Stack flexDirection='column' sx={{
+      width:'100%',
+      minHeight:'100vh'
+     
+     
+     
+      
+      
+    }}>
+      
+        
+          <Box sx={{ bgcolor: 'background.paper', position: 'sticky' ,height:'100%'}}>
+           <Navbar changeThemes={changeThemes} inputThemes={themes}  setThemes={setThemes}/>
             <Routes>
               <Route path="/" element={<Feed inputThemes={themes} />} />
               <Route path="/video/:id" element={<VideoDetails />} />
@@ -47,11 +59,14 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/login" element={<Login  changeThemes={changeThemes}/>} />
               <Route path="/upload_video" element={<UploadVideo />} />
+              <Route path="/your_channel" element={<YourChannel />} />
             </Routes>
           </Box>
-        </ThemeProvider>
-      </BrowserRouter>
-    </div>
+       
+    
+    </Stack>
+    </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

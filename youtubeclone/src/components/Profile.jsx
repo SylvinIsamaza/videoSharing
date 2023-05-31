@@ -1,8 +1,66 @@
+import { Card, CardMedia, Stack,Box,Typography,TextField,Button, Avatar} from '@mui/material'
 import React from 'react'
+import profilePic from '../assets/stylish-black-girl.jpg'
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <Stack mt={20} width='100%' display='flex' alignItems='center' sx={{
+  
+    }}>
+        <Typography  variant='h2' component='p' sx={{
+      margin:'20px 0'
+    }}>
+Profile
+    </Typography>
+  <Card sx={{
+  display:'flex',
+  alignItems:'center',
+  flexDirection:'column',
+  justifyContent:'space-between',
+  width:'500px',
+ 
+  
+  }}>
+   
+  
+    <Avatar src={profilePic } sx={{
+      width:'100px',
+      height:'100px'
+    }}></Avatar>
+    <div style={{
+      display:'flex',
+      gap:'4px'
+    }}>
+<TextField  label="Enter your email" variant="outlined" type='email' sx={{
+    margin:'20px  0'
+  }} />
+  <TextField  label="password" variant="outlined" type='password' sx={{
+    margin:'20px  0'
+  }}/>
+  </div>
+  <div style={{
+      display:'flex',
+      gap:'4px'
+    }}>
+<TextField  label="Enter your email" variant="outlined" type='email' sx={{
+    margin:'20px  0'
+  }} />
+  <TextField  label="password" variant="outlined" type='password' sx={{
+    margin:'20px  0'
+  }}/>
+  </div>
+ 
+ 
+  <Button  variant='contained' sx={{
+    margin:'20px 0'
+  }} type='submit'>Create account</Button>
+
+
+</Card>
+    </Stack>
+
+
+
   )
 }
 

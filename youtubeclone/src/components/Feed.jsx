@@ -32,16 +32,16 @@ function Feed({inputThemes}) {
   console.log(localVideo)
   return (
     <Stack sx={{
-      flexDirection:{sm:'column',md:"row"},justifySelf:'center',}}>
+      flexDirection:{sm:'column',md:"row"},justifySelf:'center',
+  
+      }}>
       <Box sx={{ height: { sx: 'auto', md: '92vh' }, borderRight: '1px solid #3d3d3d', px: { sx: 0, md: 2 },position:'sticky', top:'68px',} }>
         <Sidebar
           selectedCategory={selectedCategory}
           setSelectedCategory={setSelectedCategory}
           inputThemes={inputThemes}
         />
-        <Typography className='copyright' variant='body2' sx={{mt:1.4,color:'#fff',}} >
-          Copyright 2022 Isamaza Sylvain
-        </Typography>
+       
       </Box>
       <Box sx={{
         overflowY:'scroll',

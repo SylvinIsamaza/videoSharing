@@ -1,5 +1,5 @@
 import React, { useEffect ,useState} from 'react'
-import {ButtonGroup, Stack, Button, colors, IconButton} from '@mui/material'
+import {ButtonGroup, Stack, Button, colors, IconButton, Card} from '@mui/material'
 import {Link} from 'react-router-dom'
 import {logo} from '../utils/constants'
 import Searchbar from './Searchbar'
@@ -15,7 +15,7 @@ import profilePic from '../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
-function Navbar({changeThemes,inputThemes,currentUrl}) {
+function Navbar({changeThemes,inputThemes,setThemes}) {
     const [show, setShow] = useState(false);
    
   
@@ -90,7 +90,9 @@ function Navbar({changeThemes,inputThemes,currentUrl}) {
                         color: inputThemes=='light'?"#000":'#fff'
                     }
                 }
-                className='ButtonGroup'>
+
+                
+                className='ButtonGroup' >
                 <Link to='/profile'
                     style={
                         {width: '100%'}
@@ -111,6 +113,11 @@ function Navbar({changeThemes,inputThemes,currentUrl}) {
                         margin:'0 10px'
                      }}/>Profile</Button>
                 </Link>
+                <Link to='/your_channel' style={
+                    {
+                        width:'100%'
+                    }
+                }>
                 <Button variant='text'
                     sx={
                         {
@@ -127,7 +134,10 @@ function Navbar({changeThemes,inputThemes,currentUrl}) {
                   {padding: '5px 20px'}
                     }/>
                     Your channel</Button>
-                <Button variant='text'
+                    </Link>
+
+                     
+                                    <Button variant='text'
                     sx={
                         {
                             display: 'flex',
@@ -140,15 +150,78 @@ function Navbar({changeThemes,inputThemes,currentUrl}) {
                             padding: '20px 0',
                             textTransform: 'capitalize'
                         }
-                }>
+                       
+                }  onClick={()=>{
+                   document.getElementById('overlay').style.display='flex'
+                  }}>
+                  
+                    {inputThemes=='light'?<ModeNightIcon sx={
+                        {padding: '5px 20px'}
+                    } />:<LightModeIcon sx={
+                        {padding: '5px 20px'}
+                    }/> }appearance</Button>
+                 
+                    <Card sx={{
+                        position:'absolute',
+                        right:0,
+                        width:'100%',
+                        zIndex:3,
+                        display:'none'
+                    }} id='overlay'>
+                    <ButtonGroup sx={
+                        {display:"flex",
+                    flexDirection:'column',
+                    width:'100%',
+                }
+                    }>
+            <Button variant='text'
+                    sx={
+                        {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
+                            gap: '2px',
+                            color: inputThemes=='light'?"#000":'#fff',
+                            width: '100%',
+                            margin: '5px 0',
+                            padding: '20px 0',
+                            textTransform: 'capitalize'
+                        }
+                }  onClick={()=>{
+                    setThemes('dark')
+                    document.getElementById('overlay').style.display='none'
+                   }}>
                     {/* <IconButton onClick={()=>{
                     changeThemes();
                   }}> */}
-                    {inputThemes=='light'?<ModeNightIcon sx={
+                    {<ModeNightIcon sx={
                         {padding: '5px 20px'}
-                    }/>:<LightModeIcon sx={
+                    }/> }Dark mode</Button>
+                                    <Button variant='text'
+                    sx={
+                        {
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'flex-start',
+                            gap: '2px',
+                            color: inputThemes=='light'?"#000":'#fff',
+                            width: '100%',
+                            margin: '5px 0',
+                            padding: '20px 0',
+                            textTransform: 'capitalize'
+                        }
+                } onClick={()=>{
+                    setThemes('light')
+                    document.getElementById('overlay').style.display='none'
+                   }}>
+                    {/* <IconButton onClick={()=>{
+                    changeThemes();
+                  }}> */}
+                    <LightModeIcon sx={
                         {padding: '5px 20px'}
-                    }/> }appearance</Button>
+                    }/> Light mode</Button>
+            </ButtonGroup>
+                    </Card>
                 
                 <Button variant='text'
                     sx={
@@ -205,6 +278,7 @@ function Navbar({changeThemes,inputThemes,currentUrl}) {
                   {padding: '5px 20px'}
                     }/>help</Button>
             </ButtonGroup>
+           
 
         </>
     )

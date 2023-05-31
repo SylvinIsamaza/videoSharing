@@ -7,7 +7,9 @@ function Videos({ videos ,localVideos}) {
   return (
     <Stack direction='row' flexWrap='wrap' justifyContent='start' gap='6'  sx={{
     
-     margin:'0 3%'
+     margin:'0 3%',
+    
+    
     }}
     >
       {videos.map((item, idx) => (

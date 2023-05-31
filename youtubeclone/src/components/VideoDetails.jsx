@@ -87,7 +87,8 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
   
   return (
     <Stack flexDirection={{
-      sx: 'column', md: 'row'
+      sx: 'column', md: 'row',
+      flex:1
     }}
       sx={
         {

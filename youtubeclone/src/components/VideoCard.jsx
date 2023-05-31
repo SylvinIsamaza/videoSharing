@@ -8,7 +8,7 @@ function VideoCard({video}) {
       
       <Link to={`/video/${video.id.videoId}`}>
    
-      <Stack flexDirection={{ sm: 'column', md: 'row' }} sx={{flexWrap:'wrap',flex:1}}  >
+      <Stack flexDirection={{ sm: 'column', md: 'row' }} sx={{flexWrap:'wrap'}}  >
           
           <Card sx={{
                     maxWidth: '350px',
@@ -16,9 +16,10 @@ function VideoCard({video}) {
             height:'370px',
               borderRadius: '2px',
               margin: '7px 15px',
-              right: '4px',
-                    
-              flex:1
+            
+              flexGrow:1,
+            flex:1,
+           
              
              
           }} >

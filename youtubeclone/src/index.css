@@ -3,6 +3,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
 }
 
 a {
@@ -176,3 +178,11 @@ span.light{
     height: 30px;
   }
  }
+.App{
+  width: 100vw;
+  min-height: 100vh;
+  max-height: fit-content;
+ 
+  display: flex;
+  flex-direction: column;
+}
