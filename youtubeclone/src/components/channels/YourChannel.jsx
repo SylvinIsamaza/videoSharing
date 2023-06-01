@@ -5,7 +5,7 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import { CheckCircle, ChevronLeft, Search } from '@mui/icons-material';
 import ChannelVideos from './ChannelVideos';
 import { fetchFromApi } from '../../utils/fetchDataApi';
-import Sidebar from '../Sidebar';
+import Sidebar from '../layout/Sidebar';
 
 const YourChannel = () => {
 

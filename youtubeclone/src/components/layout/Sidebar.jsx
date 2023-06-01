@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { categories } from '../data/constants'
+import { categories } from '../../data/constants'
 import { Stack } from '@mui/material'
 function Sidebar({selectedCategory,setSelectedCategory,inputThemes}) {
 
