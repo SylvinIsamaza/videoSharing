@@ -93,12 +93,12 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
       sx={
         {
           display: "flex",
-
         }
 
       }>
       <Box sx={{
         width: '100%',
+        height:'max-content',
         bottom: '1px'
       }}>
         <ReactPlayer className='react-player' url={`https://youtu.be/${id}`} controls />

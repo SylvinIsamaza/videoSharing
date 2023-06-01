@@ -1,7 +1,7 @@
 import { Card, Stack, Typography ,Button,Box} from '@mui/material'
 import React, { useEffect, useState } from 'react'
-import {settingItems}from './settingData'
-import {Account,Download,Languages,Privacy,Theme} from './settings'
+import {settingItems}from '../../data/settingData'
+import {Account,Download,Languages,Privacy,Theme} from '.'
 
 function Settings({setThemes,changeThemes,theme,showNavigation}) {
 

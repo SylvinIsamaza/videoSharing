@@ -6,7 +6,7 @@ import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 
 
-import {logo} from '../utils/constants'
+import {logo} from '../data/constants'
 import NavbarAuth from './NavbarAuth';
 import { Link } from 'react-router-dom';
 

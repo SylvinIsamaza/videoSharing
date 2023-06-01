@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Typography } from '@mui/material';
 import React, { useEffect ,useState } from 'react';
-import { fetchFromApi } from '../utils/fetchDataApi';
+import { fetchFromApi } from '../../utils/fetchDataApi';
 
 const Comment = ({ comment }) => {
   const [channelDetail, setChannelDetails] = useState({});
