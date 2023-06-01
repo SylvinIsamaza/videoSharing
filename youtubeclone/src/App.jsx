@@ -21,6 +21,9 @@ const showNavigation=()=>{
   if(window.location.href=="http://localhost:5173/signup"||window.location.href=="http://localhost:5173/login"){
     setShowNavbar(false)
   }
+  else{
+    setShowNavbar(true)
+  }
 }
   const theme = createTheme({
     palette: {
@@ -63,15 +66,15 @@ const showNavigation=()=>{
           <Box sx={{ bgcolor: 'background.paper', position: 'sticky' ,height:'100%'}}>
           {showNavbar&&<Navbar changeThemes={changeThemes} inputThemes={themes}  setThemes={setThemes}/>} 
             <Routes>
-              <Route path="/" element={<Feed inputThemes={themes} />} />
-              <Route path="/video/:id" element={<VideoDetails />} />
-              <Route path="/channels/:id" element={<ChannelDetails />} />
-              <Route path="/search/:searchTerm" element={<SearchFeed />} />
+              <Route path="/" element={<Feed inputThemes={themes} showNavigation={showNavigation}/>} />
+              <Route path="/video/:id" element={<VideoDetails />} showNavigation={showNavigation} />
+              <Route path="/channels/:id" element={<ChannelDetails  showNavigation={showNavigation}/>} />
+              <Route path="/search/:searchTerm" element={<SearchFeed  showNavigation={showNavigation}/>} />
               <Route path="/signup" element={<Signup  changeThemes={changeThemes} showNavigation={showNavigation}/>} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/login" element={<Login  changeThemes={changeThemes} showNavigation={showNavigation}/>} />
-              <Route path="/upload_video" element={<UploadVideo />} />
-              <Route path="/your_channel" element={<YourChannel />} />
+              <Route path="/profile" element={<Profile showNavigation={showNavigation}/>} />
+              <Route path="/login" element={<Login  changeThemes={changeThemes} showNavigation={showNavigation} setThemes={setThemes}/>} />
+              <Route path="/upload_video" element={<UploadVideo showNavigation={showNavigation}/>} />
+              <Route path="/your_channel" element={<YourChannel showNavigation={showNavigation}/>} />
               <Route path="/settings" element={<Settings changeThemes={changeThemes}  setThemes={setThemes} theme={themes}/>} />
             </Routes>
           </Box>

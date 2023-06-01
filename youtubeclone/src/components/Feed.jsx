@@ -7,12 +7,13 @@ import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
 
 
 
-function Feed({inputThemes}) {
+function Feed({inputThemes,showNavigation}) {
   const [selectedCategory, setSelectedCategory] = useState('New')
   const[dataFromLocalApi,setDataFromLocalApi] = useState("")
   const[video,setVideos]=useState([])
   const[localVideo,setLocalVideo]=useState([])
   useEffect(() => {
+    showNavigation();
     fetchFromLocalApi('api/videos/random')
 .then(data=>{
   setLocalVideo(data)
@@ -27,7 +28,8 @@ function Feed({inputThemes}) {
       console.log(e)
     })
 
-  }, [selectedCategory])
+  }, [selectedCategory,window.location.href])
+
   // console.log(video)
   console.log(localVideo)
   return (

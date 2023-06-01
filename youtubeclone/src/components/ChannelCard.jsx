@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Card, CardContent, CardMedia, Stack, Typography } from '@mui/material'
 import {Link } from 'react-router-dom'
 import {ChannelDetails} from './'
 function ChannelCard({ channelDetail }) {
+   
     // const BASE_URL = 'https://youtube-v31.p.rapidapi.com'
     return (
         <>

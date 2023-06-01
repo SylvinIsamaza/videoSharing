@@ -14,6 +14,7 @@ import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
     const[video,setVideos]=useState([])
     const[localVideo,setLocalVideo]=useState([])
     useEffect(() => {
+      
       fetchFromLocalApi('api/videos/random')
   .then(data=>{
     setLocalVideo(data)

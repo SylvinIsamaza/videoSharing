@@ -16,7 +16,7 @@ import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 function NavbarAuth({changeThemes,inputThemes,setThemes}) {
-    const [show, setShow] = useState(false);
+   
    
   
 
@@ -62,7 +62,7 @@ function NavbarAuth({changeThemes,inputThemes,setThemes}) {
 
                         }
                 }>
-                     <Avatar alt="profile" src={profilePic}  sx={{
+                     <Avatar alt="profile"   sx={{
                         width:'100%',
                         height:'100%'
                      }}/>

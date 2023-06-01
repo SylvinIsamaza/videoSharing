@@ -1,8 +1,11 @@
 import { Card, CardMedia, Stack,Box,Typography,TextField,Button, Avatar} from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import profilePic from '../assets/stylish-black-girl.jpg'
 
-function Profile() {
+function Profile({showNavigation}) {
+  useEffect(()=>{
+    showNavigation();
+  },[window.location.href])
   return (
     <Stack mt={20} width='100%' display='flex' alignItems='center' sx={{
   

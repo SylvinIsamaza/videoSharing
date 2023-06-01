@@ -1,6 +1,7 @@
 import { AccountBox, DarkMode, ModeNight, PrivacyTip, UploadFile } from "@mui/icons-material";
 import LanguageIcon from '@mui/icons-material/Language';
 import ShieldIcon from '@mui/icons-material/Shield';
+import DownloadIcon from '@mui/icons-material/Download';
 
     export const settingItems=[{
         
@@ -9,7 +10,7 @@ import ShieldIcon from '@mui/icons-material/Shield';
     },
     {
         name:'Download',
-        icon:<UploadFile/>    }
+        icon:<DownloadIcon/>    }
     ,{
         name:"Languages",
         icon:<LanguageIcon/>

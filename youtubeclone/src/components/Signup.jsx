@@ -3,11 +3,12 @@ import React, { useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import {Link} from '@mui/material'
+
 
 
 import {logo} from '../utils/constants'
 import NavbarAuth from './NavbarAuth';
+import { Link } from 'react-router-dom';
 
 function Signup({changeThemes,inputThemes,setThemes,showNavigation}) {
   useEffect(()=>{
@@ -51,7 +52,7 @@ Sign up
 ,
 gap:'7px'
 }}>
-  already have account <Link href='/login' sx={{
+  already have account <Link to='/login' sx={{
     color:'#0000ff',
     cursor:'pointer',
     textDecoration:'none'

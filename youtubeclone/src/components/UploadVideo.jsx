@@ -1,12 +1,15 @@
 import { Stack, TextField ,Box, Typography, InputLabel, MenuItem,Select, FormControl, Button,Card} from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function UploadVideo() {
+function UploadVideo({showNavigation}) {
     const[visibility,setVisibility]=useState('public')
     function handleChangeSelect(e){
      setVisibility(e.target.value)
      console.log(e.target.value)
     }
+    useEffect(()=>{
+        showNavigation();
+      },[window.location.href])
 
   return (
     <Stack sx={{

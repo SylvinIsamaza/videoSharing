@@ -3,20 +3,20 @@ import React, { useEffect } from 'react'
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import {Link} from '@mui/material'
+import {Link} from 'react-router-dom'
 
 
 import {logo} from '../utils/constants'
 
 import NavbarAuth from './NavbarAuth';
 
-function Login({inputThemes,showNavigation}) {
+function Login({inputThemes,showNavigation,changeThemes,setThemes}) {
   useEffect(()=>{
     showNavigation();
   },[window.location.href])
   return (
     <>
-    <NavbarAuth></NavbarAuth>
+    <NavbarAuth changeThemes={changeThemes} setThemes={setThemes={}}></NavbarAuth>
     <Stack mt={20} width='100%' display='flex' alignItems='center' sx={{
       zIndex:3
     }}>
@@ -51,7 +51,7 @@ Login
 ,
 gap:'7px'
 }}>
-   <Link href='/login' sx={{
+   <Link to='/' sx={{
     color:'#0000ff',
     cursor:'pointer',
     textDecoration:'none'
@@ -70,7 +70,7 @@ gap:'7px'
 gap:'7px',
 mb:'20px'
 }}>
-  Don't have account <Link href='/login' sx={{
+  Don't have account <Link to='/signup' sx={{
     color:'#0000ff',
     cursor:'pointer',
     textDecoration:'none'
