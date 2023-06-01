@@ -1,9 +1,13 @@
 import { Card, Stack, Typography ,Button,Box} from '@mui/material'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {settingItems}from './settingData'
 import {Account,Download,Languages,Privacy,Theme} from './settings'
 
-function Settings({setThemes,changeThemes,theme}) {
+function Settings({setThemes,changeThemes,theme,showNavigation}) {
+
+   useEffect(()=>{
+      showNavigation();
+    },[window.location.href])
   const[selectedItem,setSelectedItem]=useState("Account")
   function changeSelectedItem(item){
     setSelectedItem(item)

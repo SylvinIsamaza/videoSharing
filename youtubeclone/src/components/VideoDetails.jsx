@@ -102,8 +102,7 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
         bottom: '1px'
       }}>
         <ReactPlayer className='react-player' url={`https://youtu.be/${id}`} controls />
-        <Typography variant='subtitle2' component='h2' sx={{
-         }}>
+        <Typography >
           {videoDetails?.snippet?.title}
         </Typography>
         <Card variant='text'>
@@ -191,6 +190,8 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
       <Stack direction='column' sx={{
         width: { sx: '100%', md: '48%' },
         display: 'flex',
+        margin:'0 20px',
+        gap:'6px',
       }}
       >
 
@@ -209,7 +210,8 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
                     sx={{
                       height: '100%',
                       width: '70%',
-                      maxWidth: '250px'
+                      maxWidth: '250px',
+                     
                     }}
                   >
                   </CardMedia>

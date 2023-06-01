@@ -14,7 +14,7 @@ import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
     const[video,setVideos]=useState([])
     const[localVideo,setLocalVideo]=useState([])
     useEffect(() => {
-      
+
       fetchFromLocalApi('api/videos/random')
   .then(data=>{
     setLocalVideo(data)
@@ -34,6 +34,7 @@ import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
     console.log(localVideo)
     return (
       <Stack sx={{
+        height:"100%",
         flexDirection:{sm:'column',md:"row"},justifySelf:'center',}}>
       
         <Box sx={{

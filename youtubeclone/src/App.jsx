@@ -58,7 +58,7 @@ const showNavigation=()=>{
      
       
       
-    }}>
+    }} id='App'>
       
       
       
@@ -75,7 +75,7 @@ const showNavigation=()=>{
               <Route path="/login" element={<Login  changeThemes={changeThemes} showNavigation={showNavigation} setThemes={setThemes}/>} />
               <Route path="/upload_video" element={<UploadVideo showNavigation={showNavigation}/>} />
               <Route path="/your_channel" element={<YourChannel showNavigation={showNavigation}/>} />
-              <Route path="/settings" element={<Settings changeThemes={changeThemes}  setThemes={setThemes} theme={themes}/>} />
+              <Route path="/settings" element={<Settings changeThemes={changeThemes}  setThemes={setThemes} theme={themes} showNavigation={showNavigation}/>} />
             </Routes>
           </Box>
        
