@@ -72,7 +72,7 @@ const showNavigation=()=>{
               <Route path="/login" element={<Login  changeThemes={changeThemes} showNavigation={showNavigation}/>} />
               <Route path="/upload_video" element={<UploadVideo />} />
               <Route path="/your_channel" element={<YourChannel />} />
-              <Route path="/settings" element={<Settings/>} />
+              <Route path="/settings" element={<Settings changeThemes={changeThemes}  setThemes={setThemes} theme={themes}/>} />
             </Routes>
           </Box>
        

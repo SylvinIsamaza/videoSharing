@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import {settingItems}from './settingData'
 import {Account,Download,Languages,Privacy,Theme} from './settings'
 
-function Settings() {
+function Settings({setThemes,changeThemes,theme}) {
   const[selectedItem,setSelectedItem]=useState("Account")
   function changeSelectedItem(item){
     setSelectedItem(item)
@@ -22,13 +22,13 @@ function Settings() {
       return <Privacy/>
    }
    if(selectedItem=="Theme"){
-      return <Theme/>
+      return <Theme changeThemes={changeThemes} setThemes={setThemes} theme={theme}/>
    }
   }
   return (
     <Stack sx={{
         width: '100dvw',
-        height:'auto',
+        
         display:'flex',
         flexDirection:'row'
 
@@ -58,9 +58,15 @@ function Settings() {
     }} className='setting_button' > {item.icon}</span><span className='setting_item'>{item.name}</span></Button>)
 })}
  </Box>
- <Card sx={{
-    height:'auto',
+ <Card   sx={{
+    height:'80vh',
     flexGrow:1,
+    border:'none',
+    boxShadow:'none',
+    display:'flex',
+    flexDirection:'column',
+    
+  
   
 
  }}>

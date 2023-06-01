@@ -13,7 +13,7 @@ function Account() {
  <Card sx={{
     display:'flex',
     flexDirection:'column',
-    
+    padding:' 0 10px ',
     marginTop:'3%',
 gap:7
  }}>
