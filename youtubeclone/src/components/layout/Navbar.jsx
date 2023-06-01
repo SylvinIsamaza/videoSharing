@@ -14,8 +14,8 @@ import {
     InputLabel
 } from '@mui/material'
 import {Link} from 'react-router-dom'
-import {logo} from '../data/constants'
-import Searchbar from './search/Searchbar'
+import {logo} from '../../data/constants'
+import Searchbar from '../search/Searchbar'
 import ModeNightIcon from '@mui/icons-material/ModeNight';
 import ModeNightOutlinedIcon from '@mui/icons-material/ModeNightOutlined';
 import Brightness6Icon from '@mui/icons-material/Brightness6';
@@ -24,7 +24,7 @@ import {Close, CloudUpload, Logout, UploadFile} from '@mui/icons-material'
 
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
-import profilePic from '../assets/stylish-black-girl.jpg'
+import profilePic from '../../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
 

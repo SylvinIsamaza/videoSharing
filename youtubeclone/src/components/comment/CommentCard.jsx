@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from 'react'
-import { fetchFromApi } from '../utils/fetchDataApi'
-import {Comment} from '.'
+import { fetchFromApi } from '../../utils/fetchDataApi'
+import Comment from './Comment'
 
 const CommentCard = ({ id }) => {
   const [comment, setComment] = useState([])

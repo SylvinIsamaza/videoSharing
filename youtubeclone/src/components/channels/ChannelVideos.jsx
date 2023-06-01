@@ -1,7 +1,7 @@
 import { Stack } from '@mui/system';
 import React, { useState } from 'react'
 import { useEffect } from 'react';
-import { fetchFromApi } from '../utils/fetchDataApi';
+import { fetchFromApi } from '../../utils/fetchDataApi';
 import ChannelVideo from './ChannelVideo';
 function ChannelVideos({id}) {
     const [channelVid,setChannelVid]=useState([]);

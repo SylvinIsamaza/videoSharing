@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { Button, Card, CardContent, CardMedia, Stack, Typography, Box } from '@mui/material'
 import ReactPlayer from 'react-player'
-import '../index.css'
+import '../../index.css'
 import { useParams } from 'react-router-dom'
-import { fetchFromApi } from '../utils/fetchDataApi'
-import {CommentCard} from'./'
+import { fetchFromApi } from '../../utils/fetchDataApi'
+import {CommentCard} from'../'
 import {useTheme} from '@mui/material'
 import { Link } from 'react-router-dom'
 const VideoDetails = () => {

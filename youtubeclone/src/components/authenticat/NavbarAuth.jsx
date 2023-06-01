@@ -11,7 +11,7 @@ import {Logout} from '@mui/icons-material'
 
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
-import profilePic from '../assets/stylish-black-girl.jpg'
+import profilePic from '../../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
 

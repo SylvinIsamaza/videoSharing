@@ -3,7 +3,7 @@ import { Box ,Stack,Typography,Card, CardContent, CardMedia} from '@mui/material
 import { Padding } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
 import { useEffect } from 'react'
-import { fetchFromApi } from '../utils/fetchDataApi'
+import { fetchFromApi } from '../../utils/fetchDataApi'
 import { useState } from 'react'
 
 

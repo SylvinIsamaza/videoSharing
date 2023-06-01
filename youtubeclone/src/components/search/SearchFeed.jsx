@@ -2,10 +2,10 @@ import React from 'react'
 import { useParams } from 'react-router-dom'
 
 import { useState,useEffect } from 'react'
-import { Box, Stack, Typography } from '@mui/material'
-import {Sidebar,Videos} from './'
+import { Box, Stack } from '@mui/material'
+import {Videos} from '../'
 
-import { fetchFromApi, fetchFromLocalApi } from '../utils/fetchDataApi'
+import { fetchFromApi, fetchFromLocalApi } from '../../utils/fetchDataApi'
 
   function SearchFeed({inputThemes}) {  
     const {searchTerm}=useParams()
