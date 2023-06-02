@@ -10,13 +10,13 @@ const cookieParser=require('cookie-parser')
 const bodyParser=require('body-parser')
 
 app.use(express.json())
-app.use(cookieParser())
+
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors({
     origin:'http://localhost:5173'
 }))
 
-
+app.use(cookieParser())
 app.use('/api/user',userRoute)
 app.use('/api/comment',commentsRoutes)
 app.use('/api/videos',videoRoutes)

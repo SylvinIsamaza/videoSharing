@@ -50,7 +50,8 @@ async function login(req,res){
     const token=jwt.sign({id:user.id},'secret',{expiresIn:'30d'})
     res.cookie("access_token",token,{
         httpOnly:true
-    }).status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser',]))
+    })
+    return res.status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser',]))
   
    
 
