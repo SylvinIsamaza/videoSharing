@@ -1,10 +1,15 @@
 import axios from 'axios'
+import{loginSuccess,loginFailure} from '../redux/userState'
+
+import { useDispatch} from 'react-redux';
+
 const baseUrl='http://localhost:8800'
-let message;
+
 export  function createUser(data,setsnackmsg){
     axios.post(baseUrl+`/api/auth/signUp`,data)
     .then((data)=>{
         console.log(data.data.message)
+       
       setsnackmsg(data.data.message)
     })
     .catch(err=>{
@@ -15,13 +20,11 @@ export  function createUser(data,setsnackmsg){
         )
 }
 export  async function login(data){
+    let dispatch=useDispatch()
     console.log(data)
     axios.post(baseUrl+'/api/auth/signin',data)
-    .then((data)=>{
-        console.log(data)
-    })
-    .catch(err=>{
-        console.log(err)
-    })
+    .then((data)=>dispatch(loginSuccess(data.data)))
+    .catch(err=>dispatch(loginFailure())
+    )
 }
 

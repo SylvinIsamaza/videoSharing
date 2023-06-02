@@ -10,8 +10,10 @@ import {logo} from '../../data/constants'
 
 import NavbarAuth from './NavbarAuth';
 import { login } from '../../services/auth';
+import { useSelector, useDispatch } from 'react-redux';
 
 function Login({inputThemes,showNavigation,changeThemes,setThemes}) {
+  let dispatch=useDispatch()
   const [email,setEmail]=useState('')
   const [password,setPassword]=useState('')
   const [data,setData]=useState({})
@@ -20,10 +22,14 @@ function Login({inputThemes,showNavigation,changeThemes,setThemes}) {
   }
  async function handleSubmit(e){
     e.preventDefault()
-    await setData({email,password})
-  login(data)
+   
+  login({email,password})
   }
+  const user=useSelector((state)=>{
+    state.user.user
+  })
   useEffect(()=>{
+
     showNavigation();
   },[window.location.href])
   return (
@@ -58,13 +64,13 @@ Login
     margin:'20px  0'
   }} onChange={(e)=>{
     setEmail(e.target.value);
-   handleData();
+
   }} />
   <TextField  label="password" variant="outlined" name='password' type='password' sx={{
     margin:'20px  0'
   }} onChange={(e)=>{
     setPassword(e.target.value);
-    handleData();
+  
   }}/>
 
 

@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import axios from 'axios'
-import {useDispatch} from 'react-redux'
+
 import store from '../../redux/store';
 
 import {logo} from '../../data/constants'
@@ -13,13 +13,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import {createUser} from '../../services/auth';
 
 
-
+import { useDispatch,useSelector } from 'react-redux';
+import { loginStart } from '../../redux/userState';
 
 function Signup({changeThemes,inputThemes,setThemes,showNavigation}) {
   const[openSnackbar,setoPenSnackbar]=useState(false);
   const closeSnackBar=()=>{
     setoPenSnackbar(false)
   }
+
   const dispatch=useDispatch()
   const [email,setEmail]=useState("");
   const [username,setUsername]=useState("");
@@ -41,6 +43,7 @@ async function handleSubmit(event){
   event.preventDefault();
  
  await createUser({email,password,name:username},setSnackMessage)
+ dispatch(loginStart())
  setoPenSnackbar(true)
  console.log(snackmsg)
   }
@@ -118,7 +121,7 @@ gap:'7px'
     margin:'20px 0'
   }} type='submit' onClick={()=>{
   
-   
+   dispatch(loginStart())
    
   }}>Create account</Button>
 </form>

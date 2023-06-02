@@ -45,7 +45,7 @@ async function login(req,res){
     console.log(user)
    const password=req.body.password;
   
-   const isCorrect=bcrypt.compare(user.password,password)
+   const isCorrect=await bcrypt.compare(password,user.password)
    if(isCorrect){
     const token=jwt.sign({id:user.id},'secret',{expiresIn:'30d'})
    return res.cookie("access_token",token,{
