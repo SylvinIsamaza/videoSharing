@@ -48,10 +48,9 @@ async function login(req,res){
    const isCorrect=bcrypt.compare(user.password,password)
    if(isCorrect){
     const token=jwt.sign({id:user.id},'secret',{expiresIn:'30d'})
-    res.cookie("access_token",token,{
+   return res.cookie("access_token",token,{
         httpOnly:true
-    })
-    return res.status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser',]))
+    }).status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser',]))
   
    
 
