@@ -17,12 +17,12 @@ async function signUp(req,res,next){
         else{
             bcrypt.hash(req.body.password,10)
             .then(async hashedPassword=>{
-              
-                const user= await new User({password:hashedPassword,...req.body})
+            
+                const user= await new User({...req.body,password:hashedPassword})
                 user.save()
                 .then(user=>{
                     console.log(user)
-                    res.send(user)
+                  return  res.status(200).send({user,message:'user registered'})
                 })
                 .catch(err=>{
     next(err)

@@ -1,9 +1,9 @@
 const mongoose=require('mongoose');
 const User=require("../models/user")
 async function verifyUser(req,res,next){
-    const username=req.METHOD=="GET"?req.params:req.body.name
+    const email=req.METHOD=="GET"?req.params:req.body.email
     try {
-        const user=await User.findOne({name:username})
+        const user=await User.findOne({email:email})
         .then(user=>{
             if(user===null){
                 return res.status(404).send("user not found")

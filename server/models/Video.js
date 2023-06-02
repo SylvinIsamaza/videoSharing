@@ -37,7 +37,6 @@ const videoSchema = new mongoose.Schema({
             default: {
                 url: {
                     type: String,
-                    required: true
 
                 }
             },
@@ -51,7 +50,6 @@ const videoSchema = new mongoose.Schema({
             high: {
                 url: {
                     type: String,
-                    required: true
 
                 }
             }
