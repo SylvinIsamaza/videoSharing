@@ -1,5 +1,5 @@
 import { Button, Card, IconButton, Stack, Typography } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
@@ -9,8 +9,20 @@ import {Link} from 'react-router-dom'
 import {logo} from '../../data/constants'
 
 import NavbarAuth from './NavbarAuth';
+import { login } from '../../services/auth';
 
 function Login({inputThemes,showNavigation,changeThemes,setThemes}) {
+  const [email,setEmail]=useState('')
+  const [password,setPassword]=useState('')
+  const [data,setData]=useState({})
+  function handleData(){
+    setData({email,password})
+  }
+ async function handleSubmit(e){
+    e.preventDefault()
+    await setData({email,password})
+  login(data)
+  }
   useEffect(()=>{
     showNavigation();
   },[window.location.href])
@@ -36,12 +48,25 @@ function Login({inputThemes,showNavigation,changeThemes,setThemes}) {
     }}>
 Login
     </Typography>
-<TextField  label="Enter your email" variant="outlined" type='email' sx={{
+    <form method='POST' onSubmit={handleSubmit} style={{
+      display:'flex',
+      alignItems:"center",
+     
+      flexDirection:'column',
+    }}>
+<TextField  label="Enter your email" variant="outlined" type='email' name='email' sx={{
     margin:'20px  0'
+  }} onChange={(e)=>{
+    setEmail(e.target.value);
+   handleData();
   }} />
-  <TextField  label="password" variant="outlined" type='password' sx={{
+  <TextField  label="password" variant="outlined" name='password' type='password' sx={{
     margin:'20px  0'
+  }} onChange={(e)=>{
+    setPassword(e.target.value);
+    handleData();
   }}/>
+
 
   <Typography sx={{
   textAlign:'end',
@@ -67,7 +92,7 @@ gap:'7px'
 
  alignItems:'center',
  justifyContent:'center',
-gap:'7px',
+
 mb:'20px'
 }}>
   Don't have account <Link to='/signup' sx={{
@@ -76,7 +101,7 @@ mb:'20px'
     textDecoration:'none'
   }}>create account</Link> 
 </Typography>
-
+</form>
 </Card>
     </Stack>
 

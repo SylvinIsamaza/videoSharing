@@ -277,6 +277,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
                                             () => {
                                                 setThemes('dark')
                                                 handleCloseAppear()
+                                                closeLeftSidebar()
                                             
                                             }
                                     }>
@@ -306,6 +307,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
                                             () => {
                                                 setThemes('light')
                                                 handleCloseAppear()
+                                                closeLeftSidebar()
                                                 
                                             }
                                     }>
