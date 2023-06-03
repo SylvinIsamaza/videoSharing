@@ -7,7 +7,11 @@ import { fetchFromApi } from '../../utils/fetchDataApi'
 import {CommentCard} from'../'
 import {useTheme} from '@mui/material'
 import { Link } from 'react-router-dom'
+import { useSelector,useDispatch } from 'react-redux'
+import{fetchStart,fetchSuccess,fetchFailure,likeIncrement,likeDecrement,dislikeIncrement,dislikeDecrement}from '../../redux/videoState'
 const VideoDetails = () => {
+  const {videos}=useSelector((state)=>state.videos)
+  console.log(videos)
   const theme=useTheme()
   const { id } = useParams();
   console.log(id)
@@ -22,14 +26,21 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
 
   const [subscriberCount, setSubscriberCount] = useState('');
   const [subscriberDisplay,setSubscriberDisplay]=useState(subscriberCount)
-
+const dispatch=useDispatch()
   // const[channel,setChannel]=useState("")
   // console.log(id)
   let channelId;
   useEffect(() => {
+    try {
+      
+    } catch (error) {
+      
+    }
     fetchFromApi(`videos?id=${id}`)
       .then(async (data) => {
+
         setVideoDetails(data.items[0])
+        dispatch(videoDetails)
        channelId=await data?.items[0]?.snippet.channelId||'';
         const fetchData = async () => {
           const data = await fetchFromApi(`channels?part=snippet%2Cstatistics&id=${channelId}`)
@@ -62,9 +73,13 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
       })
       // console.log(relatedVideos)
       
-    
+      dispatch(fetchSuccess())
+      dispatch()
   
   },[id,channelId])
+  .catch(err=>{
+    dispatch(fetchFailure)
+  })
 
   if(subscriberCount>1000000){
     setSubscriberDisplay(subscriberCount/1000000+"M")
@@ -76,7 +91,7 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
   else{
     setSubscriberDisplay(subscriberCount)
   }
-  
+ 
 })
   
   // console.log(videoDetails)
@@ -174,10 +189,10 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
                 width:'50%'
                }}>
                <Typography variant='body2' component='p' mt={1} pr={4}>
-                {videoDetails?.statistics?.viewCount} Views
+                {videoDetails?.statistics?.viewCount>1000?videoDetails?.statistics?.viewCount/1000+'k':videoDetails?.statistics?.viewCount} Views
               </Typography>
               <Typography variant='body2' component='p' mt={1}>
-                {videoDetails?.statistics?.likeCount} Likes
+                {videoDetails?.statistics?.likeCount>1000?videoDetails?.statistics?.likeCount/1000+'k':videoDetails?.statistics?.likeCount} Likes
               </Typography>
                </Typography>
             

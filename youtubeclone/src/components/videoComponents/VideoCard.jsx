@@ -2,11 +2,17 @@ import React from 'react'
 import { Box ,Stack,Typography,Card, CardContent, CardMedia} from '@mui/material'
 import { Padding } from '@mui/icons-material'
 import { Link } from 'react-router-dom'
+import{fetchStart,fetchSuccess,fetchFailure,likeIncrement,likeDecrement,dislikeIncrement,dislikeDecrement}from '../../redux/videoState'
+import { useSelector,useDispatch } from 'react-redux'
 
 function VideoCard({video}) {
+const {videos}=useSelector((state)=>state.videos)
+  const dispatch=useDispatch()
     return (
       
-      <Link to={`/video/${video.id.videoId}`}>
+      <Link to={`/video/${video.id.videoId}`} onClick={()=>{
+        dispatch(fetchStart())
+      }}>
    
       <Stack flexDirection={{ sm: 'column', md: 'row' }} sx={{flexWrap:'wrap'}}  >
           
