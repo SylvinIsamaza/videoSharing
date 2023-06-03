@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Button, Card, CardContent, CardMedia, Stack, Typography, Box } from '@mui/material'
+import { Button, Card, CardContent, CardMedia, Stack, Typography, Box, ButtonGroup } from '@mui/material'
 import ReactPlayer from 'react-player'
 import '../../index.css'
 import { useParams } from 'react-router-dom'
@@ -147,21 +147,40 @@ const [relatedVideoDetails,setRelatedVideoDetails]=useState([])
 {subscriberDisplay}            </Typography>
             </Typography>
             </Card>
-
+         
             <Card variant='text' sx={{
               display: 'flex',
               flexDirection: 'row',
               flex: 1,
-              justifyContent:'flex-end'
+              justifyContent:'center'
 
 
             }}>
-              <Typography variant='body2' component='p' mt={1} pr={4}>
+                 <ButtonGroup sx={{
+                
+              }}>
+                <Button sx={{
+                  background:'red',
+                  color:'black',
+                  border:'none',
+                  borderRadius:'30px'
+                }}>
+                  Subscribe
+                </Button>
+              </ButtonGroup>
+               <Typography sx={{
+                display: 'flex',
+                justifyContent:'flex-end',
+                width:'50%'
+               }}>
+               <Typography variant='body2' component='p' mt={1} pr={4}>
                 {videoDetails?.statistics?.viewCount} Views
               </Typography>
               <Typography variant='body2' component='p' mt={1}>
                 {videoDetails?.statistics?.likeCount} Likes
               </Typography>
+               </Typography>
+            
             </Card>
           </Card>
           
