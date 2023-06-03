@@ -50,13 +50,14 @@ async function login(req,res){
     const token=jwt.sign({id:user.id},'secret',{expiresIn:'30d'})
    return res.cookie("access_token",token,{
         httpOnly:true
-    }).status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser',]))
-  
+    }).status(200).json(lodash.pick(user,['id','name','email','subscribers','subscribedUser','img']))
+ 
    
 
    }
    else{
-    res.send("wrong password")
+    return res.status(401).send("wrong password")
    }
+
 }
 module.exports={signUp,login}

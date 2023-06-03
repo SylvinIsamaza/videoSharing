@@ -27,15 +27,15 @@ import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import profilePic from '../../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
-
+import { useSelector,useDispatch } from 'react-redux'
 
 function Navbar({changeThemes, inputThemes, setThemes}) {
     const [show, setShow] = useState(false);
     const [open, setOPen] = useState(false)
     const [AppearanceOpen, setAppearanceOpen] = useState(false)
     const [showLeftSidebar, setShowLeftSidebar] = useState(false)
-
-
+    const {user}=useSelector((state)=>state.user)
+   console.log(user)
     const closeLeftSidebar = () => {
         setShowLeftSidebar(!showLeftSidebar)
     }
@@ -113,7 +113,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
                             }
                     }>
                         <Avatar alt="profile"
-                            src={profilePic}
+                            src={user?user.img:''}
                             sx={
                                 {
                                     width: '100%',

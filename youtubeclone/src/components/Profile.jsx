@@ -1,8 +1,10 @@
 import { Card, CardMedia, Stack,Box,Typography,TextField,Button, Avatar} from '@mui/material'
 import React, { useEffect } from 'react'
 import profilePic from '../assets/stylish-black-girl.jpg'
-
+import { useSelector,useDispatch } from 'react-redux'
 function Profile({showNavigation}) {
+  const {user}=useSelector((state)=>state.user)
+  console.log(user)
   useEffect(()=>{
     showNavigation();
   },[window.location.href])
@@ -26,7 +28,7 @@ Profile
   }}>
    
   
-    <Avatar src={profilePic } sx={{
+    <Avatar src={user?user.img:'' } sx={{
       width:'100px',
       height:'100px'
     }}></Avatar>
