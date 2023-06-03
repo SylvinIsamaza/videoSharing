@@ -6,14 +6,12 @@ const createError = require('../errorHandling/error');
 async function addVideo(req, res, next) {
     const newvideos=await Video.insertMany({...req.body,id:req.body.id.videoId})
 
-    // const newVideo = await new Video({
-    //     userId: req.user.id,
-    //     ... req.body
-    // })
+ 
+
 
     try {
         // await newVideo.save()
-        
+     
         res.status(200).json(newvideos)
     } catch (err) {
         next(err)
@@ -87,7 +85,7 @@ async function trend(req, res, next) {
 async function random(req, res, next) {
     const video = await Video.aggregate([{
             $sample: {
-                size: 40
+                size: 50
             }
         }])
 

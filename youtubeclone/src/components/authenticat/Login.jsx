@@ -50,15 +50,17 @@ function Login({ inputThemes, showNavigation, changeThemes, setThemes }) {
   function signInwithGoogle(){
     signInWithPopup(auth,provider)
     .then(result=>{
-     axios.post('auth/google',{
+      console.log(result)
+     axios.post(baseUrl+'/api/auth/google',{
       name:result.user.displayName,
       email:result.user.email,
-      image:result.user.photoURL
+      img:result.user.photoURL
      }
      
 
      ).then((data)=>{
-      dispatch(loginSucces(data))
+      console.log(data)
+      dispatch(loginSucces(data.data))
      })
     
 
@@ -77,7 +79,7 @@ function Login({ inputThemes, showNavigation, changeThemes, setThemes }) {
             Login
           </Typography>
           <form method="POST" onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <TextField label="Enter your email" variant="outlined" type="email" name="email" sx={{ margin: '20px 0' }} onChange={(e) => setEmail(e.target.value)} />
+            <TextField label="Enter your email" variant="outlined" type="email" name="email" sx={{ margin: '20px 0' }} onChange={(e) => setEmail(e.target.value)} required/>
             <TextField label="Password" variant="outlined" name="password" type="password" sx={{ margin: '20px 0' }} onChange={(e) => setPassword(e.target.value)} />
             <Typography sx={{ textAlign: 'end', width: '80%', display: 'flex', justifyContent: 'flex-end', gap: '7px' }}>
               <Link to="/" sx={{ color: '#0000ff', cursor: 'pointer', textDecoration: 'none' }}>

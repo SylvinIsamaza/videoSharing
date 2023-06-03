@@ -28,6 +28,7 @@ import profilePic from '../../assets/stylish-black-girl.jpg'
 import Avatar from '@mui/material/Avatar';
 import LightModeIcon from '@mui/icons-material/LightMode';
 import { useSelector,useDispatch } from 'react-redux'
+import {logout}from '../../redux/userState'
 
 function Navbar({changeThemes, inputThemes, setThemes}) {
     const [show, setShow] = useState(false);
@@ -36,6 +37,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
     const [showLeftSidebar, setShowLeftSidebar] = useState(false)
     const {user}=useSelector((state)=>state.user)
    console.log(user)
+   const dispatch=useDispatch()
     const closeLeftSidebar = () => {
         setShowLeftSidebar(!showLeftSidebar)
     }
@@ -165,7 +167,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
                                         textTransform: 'capitalize'
                                     }
                             }><Avatar alt="profile"
-                                    src={profilePic}
+                                    src={user?user.img:''}
                                     sx={
                                         {margin: '0 10px'}
                                     }/>Profile</Button>
@@ -367,6 +369,7 @@ function Navbar({changeThemes, inputThemes, setThemes}) {
                             }    onClick={
                                 () => {
                                     closeLeftSidebar()
+                                    dispatch(logout())
                                 }
                         }>
 

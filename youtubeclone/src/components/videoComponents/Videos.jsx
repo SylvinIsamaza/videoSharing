@@ -30,7 +30,9 @@ function Videos({ videos ,localVideos}) {
       }}>
         
 
-        { item.id.videoId && <VideoCard video={item} /> }
+        { item.id.videoId&& <VideoCard video={item} /> }
+
+        { item.id&& <VideoCard video={item} /> }
         { item.id.channelId && <ChannelCard channelDetail={item} /> }
         </Box>
         

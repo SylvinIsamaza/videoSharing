@@ -60,4 +60,23 @@ async function login(req,res){
    }
 
 }
-module.exports={signUp,login}
+const googleAUth=async(req,res)=>{
+    const user=await User.findOne({email:req.body.email})
+    if(user){
+        const token=jwt.sign({id:user.id},'secret',{expiresIn:'30d'})
+        return res.cookie("access_token",token,{
+            httpOnly:true
+        }).status(200).json(user)
+    }
+    else{
+        const newUser=new User({...req.body
+            ,fromGoogle:true})
+            const savedUser=await newUser.save();
+            const token=jwt.sign({id:savedUser.id},'secret',{expiresIn:'30d'})
+            return res.cookie("access_token",token,{
+                httpOnly:true
+            }).status(200).json(savedUser)
+    }
+    
+}
+module.exports={signUp,login,googleAUth}
