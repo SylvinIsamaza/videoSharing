@@ -31,17 +31,19 @@ const dispatch=useDispatch()
   // console.log(id)
   let channelId;
   useEffect(() => {
-    try {
-      
-    } catch (error) {
-      
-    }
+    fetchFromApi(`search?relatedToVideoId=${id}&part=id%2Csnippet&type=video`)
+      .then(async(data) => {
+        setRelatedVideos(data.items)
+       })
     fetchFromApi(`videos?id=${id}`)
       .then(async (data) => {
 
         setVideoDetails(data.items[0])
-        dispatch(videoDetails)
+        // dispatch(videoDetails)
+     
+    
        channelId=await data?.items[0]?.snippet.channelId||'';
+       if(channelId){
         const fetchData = async () => {
           const data = await fetchFromApi(`channels?part=snippet%2Cstatistics&id=${channelId}`)
       
@@ -53,30 +55,16 @@ const dispatch=useDispatch()
         };
        
         fetchData()
+       }
+ 
         
      
-    fetchFromApi(`search?relatedToVideoId=${id}&part=id%2Csnippet&type=video`)
-      .then(async(data) => {
-        setRelatedVideos(data.items)
-       
-        // console.log(relatedVideos[0].id);
-      
-      
-      //  await fetchFromApi(`videos?id=${relatedVideos.id}`)
-      //     .then((data) => {
-      //       setRelatedVideoDetails(data.items)
-      //       console.log(relatedVideoDetails)
-
-      //     }
-          // )
-        // console.log(relatedVideos)
-      })
-      // console.log(relatedVideos)
+    
       
       dispatch(fetchSuccess())
       dispatch()
   
-  },[id,channelId])
+  },[id])
   .catch(err=>{
     dispatch(fetchFailure)
   })
